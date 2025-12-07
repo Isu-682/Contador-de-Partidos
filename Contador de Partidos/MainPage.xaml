@@ -6,55 +6,151 @@
     <ScrollView>
         <VerticalStackLayout
     Padding="20"
-    Spacing="25">
+    Spacing="20"
+    BackgroundColor="#000000">
 
             <Label Text="Contador de Partido"
-           FontSize="28"
-           HorizontalOptions="Center" />
+           FontSize="32"
+           HorizontalOptions="Center"
+           FontAttributes="Bold"
+           TextColor="White" />
 
-            <!-- Nombres de los equipos -->
-            <Entry x:Name="Team1Entry" Placeholder="Nombre Equipo 1" />
-            <Entry x:Name="Team2Entry" Placeholder="Nombre Equipo 2" />
+            <!-- Entrada de nombres -->
+            <HorizontalStackLayout Spacing="10">
+                <Entry x:Name="Team1Entry" Placeholder="Equipo 1" HorizontalOptions="FillAndExpand" />
+                <Entry x:Name="Team2Entry" Placeholder="Equipo 2" HorizontalOptions="FillAndExpand"/>
+            </HorizontalStackLayout>
 
-            <Button Text="Guardar nombres" Clicked="OnSaveNames" />
+            <Button Text="Guardar nombres"
+            BackgroundColor="#4CAF50"
+            TextColor="White"
+            CornerRadius="8"
+            HeightRequest="45"
+            Clicked="OnSaveNames" />
 
             <Label x:Name="TeamsLabel"
            FontSize="20"
-           HorizontalOptions="Center" />
+           HorizontalOptions="Center"
+           TextColor="White" />
 
             <!-- Marcador -->
-            <Label x:Name="ScoreLabel"
-           Text="0 - 0"
-           FontSize="40"
-           HorizontalOptions="Center" />
-
-            <!-- Equipo 1 -->
-            <Frame Padding="10" BorderColor="Black">
-                <VerticalStackLayout Spacing="10">
-
-                    <Label x:Name="Team1Label" FontSize="20" />
-
-                    <HorizontalStackLayout Spacing="10">
-                        <Button Text="+ Gol" Clicked="OnAddTeam1" />
-                        <Button Text="- Gol" Clicked="OnSubTeam1" />
-                    </HorizontalStackLayout>
-                </VerticalStackLayout>
+            <Frame BackgroundColor="White"
+           Padding="20"
+           CornerRadius="15"
+           HasShadow="True">
+                <Label x:Name="ScoreLabel"
+               Text="0 - 0"
+               FontSize="52"
+               HorizontalOptions="Center"
+               FontAttributes="Bold"
+               TextColor="#000"/>
             </Frame>
 
-            <!-- Equipo 2 -->
-            <Frame Padding="10" BorderColor="Black">
-                <VerticalStackLayout Spacing="10">
+            <!-- Equipos en diseño horizontal -->
+            <Grid ColumnDefinitions="*, Auto, *"
+          Padding="10">
 
-                    <Label x:Name="Team2Label" FontSize="20" />
+                <!-- Equipo 1 -->
+                <Frame Grid.Column="0"
+                       BackgroundColor="White"
+                       Padding="5"
+                       Margin="0,0,15,0"   
+                       CornerRadius="15"
+                       HasShadow="True">
 
-                    <HorizontalStackLayout Spacing="10">
-                        <Button Text="+ Gol" Clicked="OnAddTeam2" />
-                        <Button Text="- Gol" Clicked="OnSubTeam2" />
-                    </HorizontalStackLayout>
-                </VerticalStackLayout>
-            </Frame>
+                    <VerticalStackLayout
+    HorizontalOptions="Center"
+    VerticalOptions="Center">
+
+
+                        <Label x:Name="Team1Label"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" />
+
+                        <HorizontalStackLayout Spacing="10"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center">
+
+
+                            <Button Text="+"
+                            WidthRequest="60"
+                            HeightRequest="60"
+                            FontSize="28"
+                            BackgroundColor="#2196F3"
+                            TextColor="White"
+                            CornerRadius="30"
+                            Clicked="OnAddTeam1"/>
+
+                            <Button Text="-"
+                            WidthRequest="60"
+                            HeightRequest="60"
+                            FontSize="28"
+                            BackgroundColor="#E91E63"
+                            TextColor="White"
+                            CornerRadius="30"
+                            Clicked="OnSubTeam1"/>
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Separador decorativo -->
+                <VerticalStackLayout Grid.Column="1"
+                             WidthRequest="2"
+                             BackgroundColor="#CCCCCC" />
+
+                <!-- Equipo 2 -->
+                <Frame Grid.Column="2"
+                       BackgroundColor="White"
+                       Padding="5"
+                       Margin="15,0,0,0" 
+                       CornerRadius="15"
+                       HasShadow="True">
+
+
+                    <VerticalStackLayout
+    HorizontalOptions="Center"
+    VerticalOptions="Center">
+
+
+                        <Label x:Name="Team2Label"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+                        <HorizontalStackLayout Spacing="10"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center">
+
+
+                            <Button Text="+"
+                    WidthRequest="60"
+                    HeightRequest="60"
+                    FontSize="28"
+                    BackgroundColor="#2196F3"
+                    TextColor="White"
+                    CornerRadius="30"
+                    Clicked="OnAddTeam2"/>
+
+            <Button Text="-"
+                    WidthRequest="60"
+                    HeightRequest="60"
+                    FontSize="28"
+                    BackgroundColor="#E91E63"
+                    TextColor="White"
+                    CornerRadius="30"
+                    Clicked="OnSubTeam2"/>
+
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+</Frame>
+
+            </Grid>
 
         </VerticalStackLayout>
+
 
     </ScrollView>
 
